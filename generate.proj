@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.Windows.WinmdGenerator/0.62.23-preview">
+    <PropertyGroup Label="Globals">
+        <OutputWinmd>Example.Flat.winmd</OutputWinmd>
+        <WinmdVersion>255.255.255.255</WinmdVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Headers Include="flat.h" />
+        <Partition Include="flat.cpp">
+            <TraverseFiles>@(Headers)</TraverseFiles>
+            <Namespace>Example.Flat</Namespace>
+            <ExcludeFromCrossarch>true</ExcludeFromCrossarch>
+        </Partition>
+    </ItemGroup>
+</Project>

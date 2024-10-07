@@ -1,0 +1,3 @@
+--with-librarypath
+InitializeSubsystem=kernel32.dll
+UninitializeSubsystem=kernel32.dll
