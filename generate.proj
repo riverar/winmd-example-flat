@@ -3,9 +3,27 @@
     <PropertyGroup Label="Globals">
         <OutputWinmd>Example.Flat.winmd</OutputWinmd>
         <WinmdVersion>255.255.255.255</WinmdVersion>
+        <SdkIncKm>$(MSBuildProgramFiles32)\Windows Kits\10\Include\10.0.26100.0\km</SdkIncKm>
+        <AdditionalIncludes>$(CompiledHeadersDir);$(SdkIncKm)</AdditionalIncludes>
     </PropertyGroup>
 
-    <ItemGroup>
+    <Target Name="ConfigureEmitter" BeforeTargets="ScrapeConstants">
+        <WriteLinesToFile
+            File="emitter.settings.rsp"
+            Lines="--ref %0a $(PkgMicrosoft_Windows_WDK_Win32Metadata)\Windows.Wdk.winmd"
+            Overwrite="true" />
+    </Target>
+
+    <ItemGroup Label="Response files">
+        <EmitterRsp Include="emitter.settings.rsp" />
+    </ItemGroup>
+
+    <ItemGroup Label="Additional Dependencies">
+        <PackageReference Include="Microsoft.Windows.WDK.Win32Metadata"
+            Version="0.12.8-experimental" GeneratePathProperty="true" />
+    </ItemGroup>
+
+    <ItemGroup Label="Inputs">
         <Headers Include="flat.h" />
         <Partition Include="flat.cpp">
             <TraverseFiles>@(Headers)</TraverseFiles>

@@ -1,2 +1,2 @@
-#include <windows.h>
+#include <ntddk.h>
 #include <flat.h>

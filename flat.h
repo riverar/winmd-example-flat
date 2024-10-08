@@ -1,4 +1,4 @@
 extern "C" {
-    HANDLE  __stdcall InitializeSubsystem(INT flags);
-    VOID    __stdcall UninitializeSubsystem(HANDLE handle);
+    NTSTATUS NTAPI NtInitializeObjectFoo(IN POBJECT_ATTRIBUTES ObjectAttributes, OUT PHANDLE ObjectHandle);
+    NTSTATUS NTAPI NtUninitializeObjectFoo(IN PHANDLE ObjectHandle);
 }

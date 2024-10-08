@@ -1,0 +1,3 @@
+--with-librarypath
+NtInitializeObjectFoo=ntdll.dll
+NtUninitializeObjectFoo=ntdll.dll
