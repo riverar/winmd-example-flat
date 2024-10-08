@@ -1,3 +1,6 @@
 --with-librarypath
 NtInitializeObjectFoo=ntdll.dll
 NtUninitializeObjectFoo=ntdll.dll
+--remap
+_NtInitializeObjectFoo=NtInitializeObjectFoo
+_NtUninitializeObjectFoo=NtUninitializeObjectFoo
